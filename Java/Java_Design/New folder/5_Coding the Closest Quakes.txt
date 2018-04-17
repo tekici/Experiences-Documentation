@@ -1,0 +1,781 @@
+WEBVTT
+
+1
+00:00:03.583 --> 00:00:09.540
+Hi, perhaps you'd like to know whether a
+specific location is a quake danger zone.
+
+2
+00:00:09.540 --> 00:00:13.450
+In this coding demo, we'll describe
+how to find the closet ten earthquakes
+
+3
+00:00:13.450 --> 00:00:17.360
+to where you live, or
+to a city where a friend lives.
+
+4
+00:00:17.360 --> 00:00:22.200
+We'll write code for a specific location,
+like New York City or Jakarta,
+
+5
+00:00:22.200 --> 00:00:26.010
+Indonesia but the code will work for
+any location.
+
+6
+00:00:26.010 --> 00:00:28.525
+Our code will find the ten closest quakes,
+but
+
+7
+00:00:28.525 --> 00:00:31.870
+we'll be able to replace
+ten with any number.
+
+8
+00:00:31.870 --> 00:00:33.990
+You've solved a similar problem before.
+
+9
+00:00:33.990 --> 00:00:37.350
+Find the minimal or
+maximal element in a list of elements.
+
+10
+00:00:37.350 --> 00:00:38.640
+This is similar.
+
+11
+00:00:38.640 --> 00:00:41.340
+We'll find the closest quake
+to a specific location.
+
+12
+00:00:42.430 --> 00:00:44.310
+We'll then repeat the process but
+
+13
+00:00:44.310 --> 00:00:47.830
+first, we'll remove the closest
+quake from the data set.
+
+14
+00:00:47.830 --> 00:00:51.450
+In the same algorithm,
+we'll find the second closest quake.
+
+15
+00:00:51.450 --> 00:00:56.290
+We need to remove the closest quake but we
+don't want to change the list of quakes.
+
+16
+00:00:56.290 --> 00:00:59.900
+We need to make a copy to
+avoid removing quake data.
+
+17
+00:00:59.900 --> 00:01:03.260
+And we'll use 10 and Jakarta,
+Indonesia in the demo but
+
+18
+00:01:03.260 --> 00:01:07.710
+you'll be able to find the 57 closest
+quakes to any city you choose.
+
+19
+00:01:09.420 --> 00:01:13.630
+The seven step process is implicit
+in what we're doing here.
+
+20
+00:01:13.630 --> 00:01:17.300
+Can you find the closest
+quake to a specific location?
+
+21
+00:01:17.300 --> 00:01:22.570
+You've seen this algorithm before, finding
+the minimal or maximal element in a list.
+
+22
+00:01:22.570 --> 00:01:24.900
+We'll use the same steps here.
+
+23
+00:01:24.900 --> 00:01:28.620
+Or keep track of the index in to
+an array list of the closest quake.
+
+24
+00:01:28.620 --> 00:01:32.870
+The one with the minimal distance
+to Jakarta and each time we examine
+
+25
+00:01:32.870 --> 00:01:37.730
+a quake entry, we'll update
+the closest index value if we need to.
+
+26
+00:01:37.730 --> 00:01:41.400
+In solving the problem with paper and
+pencil, we'd cross out the minimal
+
+27
+00:01:41.400 --> 00:01:45.470
+closest quake entry after finding it,
+so that we could repeat the process and
+
+28
+00:01:45.470 --> 00:01:48.380
+be sure we wouldn't find
+the same quake again.
+
+29
+00:01:48.380 --> 00:01:51.370
+In programming,
+we'll remove the closest element
+
+30
+00:01:51.370 --> 00:01:56.410
+to avoid finding it as we repeat
+the process of finding the closest quake.
+
+31
+00:01:56.410 --> 00:01:58.000
+Let's write some code.
+
+32
+00:01:58.000 --> 00:02:01.900
+As we look through the find
+closest quakes method here,
+
+33
+00:02:01.900 --> 00:02:03.712
+we see that we've created
+an earthquake parser,
+
+34
+00:02:03.712 --> 00:02:09.500
+an array list of quake entries that
+we fill with data using the parser.
+
+35
+00:02:09.500 --> 00:02:14.590
+Then I've created a location
+variable named Jakarta and
+
+36
+00:02:14.590 --> 00:02:18.050
+I've used the latitude and
+longitude of Jakarta, Indonesia.
+
+37
+00:02:18.050 --> 00:02:22.146
+I've called the get closest method which
+is the one we're going to write during
+
+38
+00:02:22.146 --> 00:02:23.620
+this lesson.
+
+39
+00:02:23.620 --> 00:02:26.760
+I've passed at the list of data
+that I read from the parser.
+
+40
+00:02:26.760 --> 00:02:30.180
+The location that I'm interested in
+which is Jakarta and a number 10, so
+
+41
+00:02:30.180 --> 00:02:35.350
+that I can find the 10 closest
+earthquakes to Jakarta, Indonesia.
+
+42
+00:02:35.350 --> 00:02:40.110
+The rest of the method here is
+based on printing out that data.
+
+43
+00:02:40.110 --> 00:02:43.400
+If I run the program now
+by right-clicking and
+
+44
+00:02:43.400 --> 00:02:48.785
+saying find closest quakes,
+we can see that data was read for
+
+45
+00:02:48.785 --> 00:02:53.700
+1,584 earthquakes from the USGS source,
+but none were found,
+
+46
+00:02:53.700 --> 00:02:57.560
+and that's because I haven't yet written
+the method that we're gonna write now.
+
+47
+00:02:57.560 --> 00:02:59.020
+So let's look at that method.
+
+48
+00:02:59.020 --> 00:03:03.400
+The method that we're
+gonna write is getClosest.
+
+49
+00:03:03.400 --> 00:03:04.950
+We can see in getClosest,
+
+50
+00:03:04.950 --> 00:03:08.890
+that it has three parameters,
+an array list of quake data.
+
+51
+00:03:08.890 --> 00:03:12.740
+That's the source of the data about
+earthquakes that we're going to use.
+
+52
+00:03:12.740 --> 00:03:16.290
+The current location that
+in our demo is Jakarta, but
+
+53
+00:03:16.290 --> 00:03:18.510
+could be any variable that you pass.
+
+54
+00:03:18.510 --> 00:03:23.310
+And how many,
+which is ten that you've seen before,
+
+55
+00:03:23.310 --> 00:03:26.530
+just to find the single closest entry.
+
+56
+00:03:26.530 --> 00:03:27.890
+We've done that before.
+
+57
+00:03:27.890 --> 00:03:31.660
+And we did that by tracking
+the minimal index.
+
+58
+00:03:31.660 --> 00:03:37.390
+So i'm going to have a variable named
+minindex which I initialized to zero.
+
+59
+00:03:37.390 --> 00:03:40.250
+That's the location of the closest
+earthquake to where I am.
+
+60
+00:03:40.250 --> 00:03:46.500
+And then I'm gonna loop over all the other
+data by starting at one, going up to two.
+
+61
+00:03:46.500 --> 00:03:50.526
+The parameter quakeData,
+I will use its size.
+
+62
+00:03:53.439 --> 00:03:55.655
+And I'm gonna look at each
+one of those entries.
+
+63
+00:04:00.554 --> 00:04:04.660
+By obtaining the quakeData
+from the array list
+
+64
+00:04:08.317 --> 00:04:11.030
+Using the .get method.
+
+65
+00:04:11.030 --> 00:04:15.418
+And then I'm going to see if
+the current quake distance is.
+
+66
+00:04:20.126 --> 00:04:22.240
+Location, which is Jakarta.
+
+67
+00:04:25.020 --> 00:04:31.327
+So, this is current,
+The Jakarta reference,
+
+68
+00:04:31.327 --> 00:04:36.446
+so I've used current here, which is not
+a good one so we'll just call this quake.
+
+69
+00:04:36.446 --> 00:04:42.778
+If quake is, Close to current,
+
+70
+00:04:42.778 --> 00:04:45.898
+and if that's less than the distance from.
+
+71
+00:04:49.878 --> 00:04:56.119
+My minimal index which is
+quakeData.get(minIndex),
+
+72
+00:04:56.119 --> 00:05:03.393
+I'm working hard here to write this,
+.distanceTo(current).
+
+73
+00:05:03.393 --> 00:05:07.070
+That's a long list to fit on that line, so
+
+74
+00:05:07.070 --> 00:05:09.730
+I'm gonna break the line
+to make it easier to read.
+
+75
+00:05:09.730 --> 00:05:13.060
+If the distance from the current
+quake here that I've read, quake.
+
+76
+00:05:13.060 --> 00:05:18.380
+If the distance from that to Jakarta
+is less than the distance from
+
+77
+00:05:18.380 --> 00:05:24.930
+the smallest location to Jakarta, then I
+need to remember a new minimal distance.
+
+78
+00:05:24.930 --> 00:05:32.760
+And so I will reset the minimal
+index variable to K.
+
+79
+00:05:32.760 --> 00:05:35.450
+When I'm done I need to
+make sure that I store
+
+80
+00:05:37.540 --> 00:05:42.950
+in my return array the location
+that's closest to Jakarta,
+
+81
+00:05:42.950 --> 00:05:49.895
+which I get from saying
+quakeData.get(minIndex).
+
+82
+00:05:50.990 --> 00:05:52.789
+Let's see if this code compiles.
+
+83
+00:05:54.380 --> 00:05:57.863
+There is no distanceTo method.
+
+84
+00:05:57.863 --> 00:06:01.847
+That's because I've forgotten
+the name of the method,
+
+85
+00:06:01.847 --> 00:06:06.495
+so I will use the handy Ctrl+Space,
+which tells me the names of all
+
+86
+00:06:06.495 --> 00:06:10.906
+the different functions that I
+can use on a location variable.
+
+87
+00:06:10.906 --> 00:06:14.595
+And we can see here that that is
+the quake entry class, and I've made
+
+88
+00:06:14.595 --> 00:06:18.930
+the canonical mistake of forgetting
+that I need the location variable.
+
+89
+00:06:18.930 --> 00:06:22.674
+Not just the current quake,
+but I need the quake location.
+
+90
+00:06:22.674 --> 00:06:29.403
+So I will set location to
+quake.getLocation, and
+
+91
+00:06:29.403 --> 00:06:36.659
+then I will use loc, .distanceTo.
+
+92
+00:06:36.659 --> 00:06:42.150
+And getLocation().distanceTo.
+
+93
+00:06:42.150 --> 00:06:45.620
+That's a mouthful, so I'll go over
+it to make sure once it's compiled.
+
+94
+00:06:45.620 --> 00:06:47.740
+The program has compiled, and
+
+95
+00:06:47.740 --> 00:06:50.840
+I will now run through it very quickly
+to make sure we're all on the same page.
+
+96
+00:06:52.200 --> 00:06:54.920
+My minimal index will remember where in
+
+97
+00:06:56.310 --> 00:07:00.820
+array list quake data
+my closest location is.
+
+98
+00:07:00.820 --> 00:07:06.958
+As I loop over all the data I get
+the quake entry, stored in variable quake.
+
+99
+00:07:06.958 --> 00:07:10.700
+I use quake.getLocation,
+
+100
+00:07:10.700 --> 00:07:14.940
+to get the location of the current
+one I'm iterating over.
+
+101
+00:07:14.940 --> 00:07:18.760
+And then I'm comparing
+the distance from that location,
+
+102
+00:07:18.760 --> 00:07:20.960
+which is the one I'm
+iterating over in this loop.
+
+103
+00:07:22.250 --> 00:07:25.950
+I compare it to the closest
+quake I've seen so far.
+
+104
+00:07:25.950 --> 00:07:30.290
+That's what minIndex is,
+the closest quake I've seen so far.
+
+105
+00:07:30.290 --> 00:07:36.940
+And I do that by asking, if this distance
+is less than the distance to current,
+
+106
+00:07:36.940 --> 00:07:42.230
+which is Jakarta then I will remember,
+and reset minIndex.
+
+107
+00:07:42.230 --> 00:07:47.870
+If I run this program, by coming out here,
+right clicking, creating a new object.
+
+108
+00:07:49.310 --> 00:07:52.800
+And then invoking the findClosestQuake.
+
+109
+00:07:54.680 --> 00:08:02.170
+I will see that the closest quake
+found is 223 kilometers from Jakarta.
+
+110
+00:08:02.170 --> 00:08:04.880
+And this is where it is, it found one.
+
+111
+00:08:04.880 --> 00:08:09.890
+If I want to find the ten closests quakes,
+I simply need to take this loop that I've
+
+112
+00:08:09.890 --> 00:08:15.390
+done here, and put that in another loop,
+that iterates how many times?
+
+113
+00:08:17.120 --> 00:08:22.373
+I can do that simply,
+by putting a for loop around this.
+
+114
+00:08:35.251 --> 00:08:37.530
+Let me make sure that is down here.
+
+115
+00:08:38.570 --> 00:08:41.970
+And taking all this code and indenting it.
+
+116
+00:08:43.360 --> 00:08:45.550
+Let me just make clear what I've done.
+
+117
+00:08:46.730 --> 00:08:49.520
+This is the code I'd already tested.
+
+118
+00:08:49.520 --> 00:08:54.300
+That looped through all the arrays,
+quake entry objects,
+
+119
+00:08:54.300 --> 00:08:58.950
+finds the smallest one and
+adds it to the variable I'm returning.
+
+120
+00:08:58.950 --> 00:09:02.480
+If I repeat this over and
+over again I'll find the closest quake.
+
+121
+00:09:02.480 --> 00:09:05.820
+Then the next closest quake, and
+then the next closest quake.
+
+122
+00:09:05.820 --> 00:09:08.490
+The only problem is once I
+found the closest quake,
+
+123
+00:09:08.490 --> 00:09:10.630
+I'll keep finding it over and over again.
+
+124
+00:09:10.630 --> 00:09:13.967
+We can see this by running the program.
+
+125
+00:09:18.089 --> 00:09:20.364
+Find the closest quakes.
+
+126
+00:09:20.364 --> 00:09:22.840
+And we see we've found the same
+one over and over again.
+
+127
+00:09:22.840 --> 00:09:27.040
+Not surprising we've found ten but
+we kept finding the closest one.
+
+128
+00:09:27.040 --> 00:09:28.788
+That's a simple thing to fix.
+
+129
+00:09:28.788 --> 00:09:34.488
+After we find it we simply
+remove it from quakeData.
+
+130
+00:09:34.488 --> 00:09:38.355
+So our array list have a remove element so
+
+131
+00:09:38.355 --> 00:09:42.960
+I will simply remove
+the element after I get it.
+
+132
+00:09:42.960 --> 00:09:48.060
+So, quakeData.remove(minIndex).
+
+133
+00:09:48.060 --> 00:09:54.160
+After I've obtained the closest quake,
+I'll remove it so I never find it again.
+
+134
+00:09:54.160 --> 00:09:55.120
+Compile that program.
+
+135
+00:09:56.400 --> 00:10:04.770
+Create a new, ClosestQuake object and,
+find the closest ten quakes.
+
+136
+00:10:04.770 --> 00:10:09.290
+I can see here, I found one quake
+that's 223 kilometers away.
+
+137
+00:10:09.290 --> 00:10:13.360
+And the tenth closest quake,
+which is more than 2000 kilometers away.
+
+138
+00:10:13.360 --> 00:10:15.910
+I'm reasonably confident that
+my program works correctly.
+
+139
+00:10:15.910 --> 00:10:19.140
+I'd like to verify that by running
+it through some real data.
+
+140
+00:10:19.140 --> 00:10:20.890
+The only problem I have, is that,
+
+141
+00:10:20.890 --> 00:10:26.170
+right now, after finding the ten closest
+quakes, I've removed them from quakeData.
+
+142
+00:10:26.170 --> 00:10:28.780
+That would be a simple fix to make.
+
+143
+00:10:28.780 --> 00:10:34.340
+Create a copy of quakeData, and use that
+copy to show you how that would work,
+
+144
+00:10:34.340 --> 00:10:40.360
+I'd simply say,
+create a QuakeEntry and copy,
+
+145
+00:10:40.360 --> 00:10:45.210
+make a new array list, and
+
+146
+00:10:45.210 --> 00:10:49.530
+construct that from quakeData.
+
+147
+00:10:49.530 --> 00:10:54.215
+Now simply use copy everywhere in my code,
+
+148
+00:10:54.215 --> 00:10:57.907
+instead of using quakeData, so that,
+no, I'm not moderating my parameter.
+
+149
+00:10:57.907 --> 00:11:02.666
+Instead of quakeData.size,
+I'll use copy.size.
+
+150
+00:11:02.666 --> 00:11:06.245
+Instead of quakeData.get, that one's fine.
+
+151
+00:11:06.245 --> 00:11:11.930
+Down here I'll use copy,
+and here I'll use copy.
+
+152
+00:11:13.120 --> 00:11:15.770
+When I compile that program,
+there are no syntax errors,
+
+153
+00:11:15.770 --> 00:11:19.890
+I wanna make sure I'm not
+using quakeData anywhere.
+
+154
+00:11:19.890 --> 00:11:21.210
+I'm looking through my code,
+
+155
+00:11:21.210 --> 00:11:25.980
+I've used copy, I've used copy,
+quakeData, I need copy there.
+
+156
+00:11:27.180 --> 00:11:28.260
+And now I'm set to go.
+
+157
+00:11:29.790 --> 00:11:38.120
+One last run, Find the closest,
+and there they are.
+
+158
+00:11:38.120 --> 00:11:41.500
+I found ten closest quakes to Jakarta,
+Indonesia.
+
+159
+00:11:41.500 --> 00:11:44.900
+Let me just remind you
+of what we did there.
+
+160
+00:11:44.900 --> 00:11:46.430
+I took my standard code for
+
+161
+00:11:46.430 --> 00:11:52.130
+finding the closest quake to one that
+was specified by the parameter current.
+
+162
+00:11:53.340 --> 00:11:57.820
+And once I tested that, and
+found one, I took that code and
+
+163
+00:11:57.820 --> 00:12:03.390
+added this loop around it, so that I could
+repeat it this many times, how many.
+
+164
+00:12:03.390 --> 00:12:06.590
+I then realized, I was modifying my
+parameter, and so I made a copy.
+
+165
+00:12:07.730 --> 00:12:10.950
+Happy programming,
+don't get too close to an earthquake.

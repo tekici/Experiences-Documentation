@@ -1,0 +1,90 @@
+TODO : 
+Check the earthquake data and decide to do; JSONorXML common parser:
+	1- Find XML data for earthquake
+	
+
+The informations that can be gathered via Location (Latitude,Longtitude):
+
+- Crime statistics 
+- Weathercast
+- Earthquakes
+
+
+Program functionalities:
+
+-Query the Weathercast according to the "City Name" or "Coordinate" (Overloading functions)
+-Query the 10 closest Earthquakes around the given Coordinate 
+-Find more queries depending on Location
+-Do the queries by using virtual function 
+
+Java Features that will be used : 
+-Interface(?)
+-Abstract Class (if there is XML information for earthquakes)
+-Datasets (in the query of earthquake to list the closest 10)
+-Polymorphism(?)
+-Encapsulation(?)
+
+
+Bonus: 
+
+-Calculating a rate for death depending on location
+-Query the Earthquakes also with the name of city
+
+***Coding Design Notes (02.09)
+abstract class LocationQuery{
+queryByCoordinate(Double,Double);
+queryByCity(String);
+public String parseJSON throws Exception{
+}
+public String parseXML {
+}
+
+}
+
+***JSON links (References)
+Query with the name of city:
+http://api.openweathermap.org/data/2.5/weather?q=ISTANBUL&units=metric&appid=d1bb4fca4bb9d21336f0916155fca6a5
+Result :
+{"coord":{"lon":28.95,"lat":41.01},"weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09n"}],
+"base":"stations","main":{"temp":6,"pressure":1027,"humidity":87,"temp_min":6,"temp_max":6},"visibility":9000,
+"wind":{"speed":6.2,"deg":20},"clouds":{"all":75},"dt":1486669800,"sys":{"type":1,"id":6044,"message":0.0174,
+"country":"TR","sunrise":1486616706,"sunset":1486654337},"id":745044,"name":"Istanbul","cod":200}
+
+Query with the Coordinates(Can be given double or int): 
+api.openweathermap.org/data/2.5/weather?lat=41&lon=29&appid=d1bb4fca4bb9d21336f0916155fca6a5
+Result : 
+{"coord":{"lon":29.02,"lat":41.02},"weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09n"}],
+"base":"stations","main":{"temp":279.15,"pressure":1027,"humidity":87,"temp_min":279.15,"temp_max":279.15},"visibility":9000,
+"wind":{"speed":6.2,"deg":20},"clouds":{"all":75},"dt":1486669800,"sys":{"type":1,"id":6044,"message":0.4248,
+"country":"TR","sunrise":1486616690,"sunset":1486654319},"id":738329,"name":"Üsküdar","cod":200}
+
+XML
+http://api.openweathermap.org/data/2.5/weather?q=ISTANBUL&units=metric&mode=xml&appid=d1bb4fca4bb9d21336f0916155fca6a5
+
+***Java code for JSON parser
+        // build a URL
+        String s = "http://api.openweathermap.org/data/2.5/weather?q=ISTANBUL&units=metric&mode=xml&appid=d1bb4fca4bb9d21336f0916155fca6a5";
+        //s += URLEncoder.encode(addr, "UTF-8");
+        URL url = new URL(s);
+
+        // read from the URL
+        Scanner scan = new Scanner(url.openStream());
+        String str = new String();
+        while (scan.hasNext())
+            str += scan.nextLine();
+        scan.close();
+        
+        
+        // build a JSON object
+        JSONObject obj = new JSONObject(str);
+        if (! obj.getString("status").equals("OK"))
+            return;
+
+        // get the first result
+        JSONObject res = obj.getJSONObject("main");
+        System.out.println(res.getString("humidity"));
+        /*JSONObject loc =
+                res.getJSONObject("geometry").getJSONObject("location");
+        System.out.println("lat: " + loc.getDouble("lat") +
+                ", lng: " + loc.getDouble("lng"));*/
+

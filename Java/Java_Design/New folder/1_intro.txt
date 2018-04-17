@@ -1,0 +1,506 @@
+WEBVTT
+
+1
+00:00:03.104 --> 00:00:05.324
+Hello, we're going to look at code and
+
+2
+00:00:05.324 --> 00:00:08.363
+concepts to investigate
+real time earthquake data.
+
+3
+00:00:08.363 --> 00:00:12.801
+Real time means that your program will be
+able to access data recorded seconds or
+
+4
+00:00:12.801 --> 00:00:14.864
+minutes before your program is run.
+
+5
+00:00:14.864 --> 00:00:19.603
+Your program will also be able to read a
+file of recorded data, which will make it
+
+6
+00:00:19.603 --> 00:00:24.302
+easier to determine if the program is
+correct as you develop and test the code.
+
+7
+00:00:24.302 --> 00:00:28.934
+These programs will illustrate how to
+design classes that use other classes.
+
+8
+00:00:28.934 --> 00:00:34.340
+And eventually, how interfaces,
+a new Java concept are used.
+
+9
+00:00:34.340 --> 00:00:38.180
+These programming ideas will be used
+to study searching and sorting.
+
+10
+00:00:38.180 --> 00:00:43.460
+Fundamental concepts in computer science
+and programming that help in understanding
+
+11
+00:00:43.460 --> 00:00:46.300
+data and
+quickly accessing the data you want.
+
+12
+00:00:47.830 --> 00:00:53.100
+You'll also see how to use APIs or
+application programming interfaces
+
+13
+00:00:53.100 --> 00:00:57.250
+to parse and transform data,
+formatted using industry standards.
+
+14
+00:00:58.400 --> 00:01:02.990
+These programs will be the basis of
+an exciting set of projects, but
+
+15
+00:01:02.990 --> 00:01:07.660
+will also be the basis of possible further
+explorations in software engineering and
+
+16
+00:01:07.660 --> 00:01:08.340
+computer science.
+
+17
+00:01:09.630 --> 00:01:13.300
+Our Capstone Project will
+use the same concepts.
+
+18
+00:01:13.300 --> 00:01:17.531
+The second specialization in
+Java programming designed by our
+
+19
+00:01:17.531 --> 00:01:21.920
+friends from UCSD and available
+now on the Coursera platform uses
+
+20
+00:01:21.920 --> 00:01:26.014
+the same earthquake data as
+the focus of their first course.
+
+21
+00:01:26.014 --> 00:01:28.190
+We hope you'll be intrigued and
+
+22
+00:01:28.190 --> 00:01:32.954
+curious enough to explore these
+concepts and these datas on your own.
+
+23
+00:01:32.954 --> 00:01:36.768
+We recorded real-time
+earthquake data on November 11,
+
+24
+00:01:36.768 --> 00:01:41.340
+2015 with the program you'll
+study in this lesson.
+
+25
+00:01:41.340 --> 00:01:47.180
+We use the earthquake data to create
+a Google map, whose URL you see here.
+
+26
+00:01:47.180 --> 00:01:50.950
+This snapshot shows earthquakes
+of low magnitude in California
+
+27
+00:01:50.950 --> 00:01:52.650
+in the United States.
+
+28
+00:01:52.650 --> 00:01:56.100
+The key you see shows that
+a yellow star is an earthquake,
+
+29
+00:01:56.100 --> 00:01:59.560
+whose magnitude is less than 1.5.
+
+30
+00:01:59.560 --> 00:02:05.790
+Quakes who's magnitude is less than 2.0
+are typically considered microearthquakes,
+
+31
+00:02:05.790 --> 00:02:09.580
+you can see that there are a lot
+of these in California.
+
+32
+00:02:09.580 --> 00:02:15.279
+We can also use the data from this program
+to show quakes in all parts of the world.
+
+33
+00:02:15.279 --> 00:02:20.872
+Here is a map showing quakes of greater
+magnitude in areas near Southeast Asia,
+
+34
+00:02:20.872 --> 00:02:22.465
+Japan and Indonesia.
+
+35
+00:02:22.465 --> 00:02:26.650
+The map makes it easier to
+see clusters of quakes.
+
+36
+00:02:26.650 --> 00:02:32.010
+We created these maps by transforming
+the real time data into a CSV file,
+
+37
+00:02:32.010 --> 00:02:35.450
+where CVS stands for
+comma separated values.
+
+38
+00:02:35.450 --> 00:02:39.080
+Data in this format can be loaded
+directly into a Google map.
+
+39
+00:02:39.080 --> 00:02:41.531
+You'll see how to transform data and
+
+40
+00:02:41.531 --> 00:02:45.575
+how to use it as you develop
+the Java programs in this lesson.
+
+41
+00:02:45.575 --> 00:02:49.490
+The data is obtained from
+real time data feeds from
+
+42
+00:02:49.490 --> 00:02:55.374
+the United States Geological Survey
+website at earthquake.usgs.gov.
+
+43
+00:02:55.374 --> 00:03:00.316
+The data downloads in an XML format,
+a standard, widely used format for
+
+44
+00:03:00.316 --> 00:03:02.450
+structured data.
+
+45
+00:03:02.450 --> 00:03:06.180
+XML stands for Extensible Markup Language.
+
+46
+00:03:06.180 --> 00:03:10.540
+JSON is another standard format
+that is increasingly used for
+
+47
+00:03:10.540 --> 00:03:12.297
+transmitting and storing data, as well.
+
+48
+00:03:13.770 --> 00:03:16.917
+JSON stands for
+JavaScript Object Notation,
+
+49
+00:03:16.917 --> 00:03:21.283
+though the format is widely used
+in all programming languages.
+
+50
+00:03:21.283 --> 00:03:23.327
+These are widespread standards,
+
+51
+00:03:23.327 --> 00:03:27.424
+but parsing data in these formats
+can be somewhat tricky or tedious.
+
+52
+00:03:27.424 --> 00:03:30.010
+As you can see here, the latitude and
+
+53
+00:03:30.010 --> 00:03:35.864
+longitude data are formatted between tags
+that specify a particular kind of data.
+
+54
+00:03:35.864 --> 00:03:41.297
+All modern programming languages provide
+an API for parsing formatted data.
+
+55
+00:03:41.297 --> 00:03:42.887
+But as part of this course,
+
+56
+00:03:42.887 --> 00:03:46.000
+we will provide an API that
+hides some of the details to
+
+57
+00:03:46.000 --> 00:03:50.790
+help make parsing the data more in line
+with our use of collections and iterables.
+
+58
+00:03:52.070 --> 00:03:57.240
+The programs you use will be able to parse
+and transform the data into other formats.
+
+59
+00:03:57.240 --> 00:04:01.400
+For example, we need a CSV format for
+creating a Google Map.
+
+60
+00:04:02.480 --> 00:04:05.230
+Other mapping services use CSV data,
+as well.
+
+61
+00:04:06.480 --> 00:04:11.390
+As you can see, the latitude and longitude
+are stored as simple values separated
+
+62
+00:04:11.390 --> 00:04:14.710
+by commas from other data about
+an individual earthquake.
+
+63
+00:04:15.880 --> 00:04:21.700
+Transforming data from XML format to CSV
+format is relatively straightforward,
+
+64
+00:04:21.700 --> 00:04:25.620
+because the parser creates a Java
+object that helps with the programming.
+
+65
+00:04:26.880 --> 00:04:31.652
+Parsing and Transforming Data is a common
+application that helps with solving
+
+66
+00:04:31.652 --> 00:04:33.758
+problems and interpreting data.
+
+67
+00:04:33.758 --> 00:04:38.599
+The code to transform XML
+to CSV is shown here.
+
+68
+00:04:38.599 --> 00:04:43.341
+Parsing is not always simple, so we have
+created an API to make it easier for
+
+69
+00:04:43.341 --> 00:04:46.597
+you to write programs to
+process earthquake data.
+
+70
+00:04:46.597 --> 00:04:50.425
+The API creates a collection
+of earthquake entry
+
+71
+00:04:50.425 --> 00:04:54.170
+objects where QuakeEntry
+here is a Java class.
+
+72
+00:04:55.390 --> 00:05:01.020
+Here you can see an EarthQuakeParser
+object being created to parse XML data.
+
+73
+00:05:01.020 --> 00:05:04.190
+You'll be able to look at
+the parsing code if you want,
+
+74
+00:05:04.190 --> 00:05:07.860
+which uses standard API to parse the XML.
+
+75
+00:05:09.010 --> 00:05:14.670
+The API we've designed can use the data
+that comes from a file or a URL.
+
+76
+00:05:14.670 --> 00:05:20.010
+This will facilitate testing the program
+on the same data stored in a file or
+
+77
+00:05:20.010 --> 00:05:23.450
+to use real-time data that might be
+different every time the program runs.
+
+78
+00:05:24.780 --> 00:05:28.610
+Here you see the source of
+the data being specific as a URL.
+
+79
+00:05:28.610 --> 00:05:32.370
+This is the real-time data
+feed from the USGS quake data.
+
+80
+00:05:33.580 --> 00:05:37.140
+The parser uses the datasource,
+reads the XML and
+
+81
+00:05:37.140 --> 00:05:40.400
+returns an array list
+of QuakeEntry objects.
+
+82
+00:05:40.400 --> 00:05:44.260
+Let's look briefly at
+what a QuakeEntry is.
+
+83
+00:05:44.260 --> 00:05:48.482
+There are two classes you'll use,
+QuakeEntry and location.
+
+84
+00:05:48.482 --> 00:05:53.147
+The QuakeEntry class holds
+the data that's relevant to
+
+85
+00:05:53.147 --> 00:05:57.525
+an earthquake and
+that comes from the USGS XML feed.
+
+86
+00:05:57.525 --> 00:05:58.456
+As you can see,
+
+87
+00:05:58.456 --> 00:06:03.202
+there are four instance fields we'll
+use in understanding earthquake data.
+
+88
+00:06:03.202 --> 00:06:08.172
+The field myLocation is a location object,
+which will help as you write code
+
+89
+00:06:08.172 --> 00:06:11.680
+to find where quakes are close
+to each other or to you.
+
+90
+00:06:13.040 --> 00:06:17.730
+The magnitude of the earthquake is
+a measure of how strong or forceful it is.
+
+91
+00:06:17.730 --> 00:06:20.770
+The depth of an earthquake
+determines how far underground or
+
+92
+00:06:20.770 --> 00:06:26.060
+under the ocean a quake is located and
+all quakes from the USGS feed
+
+93
+00:06:26.060 --> 00:06:28.530
+have a description related to
+the location of the quake.
+
+94
+00:06:30.190 --> 00:06:32.040
+Location is a separate class.
+
+95
+00:06:32.040 --> 00:06:36.570
+We could have used double values to store
+the latitude and longitude directly, but
+
+96
+00:06:36.570 --> 00:06:39.700
+you'll see why a separate
+class is useful later.
+
+97
+00:06:40.940 --> 00:06:44.383
+One class often uses another or
+contains another,
+
+98
+00:06:44.383 --> 00:06:47.996
+as the QuakeEntry class
+contains a location object.
+
+99
+00:06:47.996 --> 00:06:52.071
+The location object was adapted from
+the Android standard libraries.
+
+100
+00:06:52.071 --> 00:06:53.935
+Android code is based on Java and
+
+101
+00:06:53.935 --> 00:06:59.430
+is the software that runs more smartphones
+than any other software in the world.
+
+102
+00:06:59.430 --> 00:07:02.090
+Phones typically can
+help you find directions,
+
+103
+00:07:02.090 --> 00:07:05.570
+because they know where you
+are based on GPS sensors.
+
+104
+00:07:05.570 --> 00:07:08.235
+The Android location class is a robust and
+
+105
+00:07:08.235 --> 00:07:11.520
+well-tested class you'll be
+able to use in your programs.
