@@ -42,8 +42,31 @@ expectativa - expectation
 ademas		- also
 fallido 	- failed
 
+mapear	  - mapping
+reemplazar- replace
+solicitar- Apply for
+peticione- Request
+almacenar- to stock
+recurso  - resource
+esquema  - scheme
+potenciar- enhance
+hilo     - thread
+denominado- named as
+bucle    - loop
+aumenta  - increased
+augmentation - buyume
+sencilla - basic
+suponga  - suppose
+guión    - tire -
+guiarme  - guide me
+guia     - guide
+
 Cumle Kaliplari : 
 tiene que haber - there have to be
 Agradezco la atención prestada - I appreciate the attention provided
 Propuesta de Diseno - Design proposal
 provenientes de - ..-den gelen
+cerrar la brecha - closing the gap
+he dicho   - i have told
+he escrito - i have written
+como hemos dicho - as we have said 
