@@ -1,4 +1,6 @@
 
+Rechazar	- Reject
+DESCARTAR 	- Discard
 SUBSANADA	- Corrected
 YA SEA		- Whether - Eighter
 VACÍO		- Empty
