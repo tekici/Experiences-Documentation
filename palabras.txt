@@ -1,4 +1,7 @@
-
+INDICIO		- Clue, kanit
+CASTIGADO	- Punished
+DEMAS		- Rest
+contexualizacion
 Rechazar	- Reject
 DESCARTAR 	- Discard
 SUBSANADA	- Corrected
@@ -32,7 +35,7 @@ PLANTILLO 	- Template
 ALENTAR		- Encourage
 PRESTACION 	- benefit
 ANTECEDENTES- BACKGROUND
-APUNTAR		- POINT
+APUNTAR		- TO POINT
 desconocido - Unknown
 complejidad - Complexity
 enfocar		- to focus
@@ -62,6 +65,7 @@ guiarme  - guide me
 guia     - guide
 
 Cumle Kaliplari : 
+si las cosas se dan
 tiene que haber - there have to be
 Agradezco la atención prestada - I appreciate the attention provided
 Propuesta de Diseno - Design proposal
