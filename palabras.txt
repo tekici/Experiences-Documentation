@@ -1,4 +1,4 @@
-
+SERES		- Being , human being, Living things.
 Rechazar	- Reject
 DESCARTAR 	- Discard
 SUBSANADA	- Corrected
@@ -61,7 +61,7 @@ guión    - tire -
 guiarme  - guide me
 guia     - guide
 
-Cumle Kaliplari : 
+Cumle Kaliplari : si las cosas se dan.
 tiene que haber - there have to be
 Agradezco la atención prestada - I appreciate the attention provided
 Propuesta de Diseno - Design proposal
