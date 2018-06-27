@@ -1,3 +1,5 @@
+Retroalimentacion - feedback	
+DISPARADOR  - TRIGGER
 INDICIO		- Clue, kanit
 CASTIGADO	- Punished
 DEMAS		- Rest
